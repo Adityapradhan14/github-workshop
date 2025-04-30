@@ -1,0 +1,35 @@
+object SimpleCalculator {
+  def main(args: Array[String]): Unit = {
+    // Taking first number from user
+    print("Enter first number: ")
+    val num1 = scala.io.StdIn.readDouble()
+
+    // Taking second number from user
+    print("Enter second number: ")
+    val num2 = scala.io.StdIn.readDouble()
+
+    // Taking operator from user
+    print("Enter operator (+, -, *, /): ")
+    val op = scala.io.StdIn.readLine()
+
+    // Calculating based on operator
+    val result = op match {
+      case "+" => num1 + num2
+      case "-" => num1 - num2
+      case "*" => num1 * num2
+      case "/" =>
+        if (num2 != 0) num1 / num2
+        else {
+          println("Error: Division by zero")
+          return
+        }
+      case _ =>
+        println("Invalid operator!")
+        return
+    }
+
+    // Printing result
+    println(s"Result: $result")
+  }
+}
+
